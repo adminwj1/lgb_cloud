@@ -1,0 +1,24 @@
+server:
+  Port: 8080
+  Upload: /upload
+  AccessExpire: 50000
+database:
+  UserName: root
+  PassWord: 123456
+  Address: 127.0.0.1
+  Port: 3306
+  DBname: cloud
+
+log:
+  Root_dir: ./log
+  FileName: app.log
+  MaxSize: 500
+  MaxBackup: 3
+  MaxAge: 28
+  Level: info
+
+#redis:
+#  Addr: 119.3.143.106
+#  Port: 6300
+#  Password: Adminwj@wj1234
+#  DB: 0
