@@ -1,13 +1,14 @@
 package user
 
 import (
+	"time"
+
 	"clouds.lgb24kcs.cn/controllers/user/request"
 	"clouds.lgb24kcs.cn/errorx"
 	"clouds.lgb24kcs.cn/global"
 	"clouds.lgb24kcs.cn/models"
 	"clouds.lgb24kcs.cn/utils"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 type UserUpdataAPI struct {
@@ -19,6 +20,8 @@ func (u *UserUpdataAPI) UserUpdata(c *gin.Context, req request.UpdataReq, id int
 	userinfo := models.User{}
 	tx := global.APP.DB.Model(&userinfo).Where("id=?", id).Update("username", req.Username)
 	if tx.Error != nil {
+		global.APP.Log.Error(tx.Error.Error())
+
 		utils.Fail(c, errorx.UserUpload, "用户更新失败")
 	} else if tx.RowsAffected == 0 {
 		utils.Fail(c, errorx.UserUpload, "用户信息不存在")

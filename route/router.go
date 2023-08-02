@@ -1,6 +1,8 @@
 package route
 
 import (
+	"clouds.lgb24kcs.cn/controllers/bucket/add"
+	"clouds.lgb24kcs.cn/controllers/bucket/list"
 	"clouds.lgb24kcs.cn/controllers/user/Login"
 	"clouds.lgb24kcs.cn/controllers/user/Register"
 	"clouds.lgb24kcs.cn/controllers/user/upload"
@@ -24,6 +26,13 @@ func StartRouter() *gin.Engine {
 
 		}
 	}
+	bucket := engine.Group("bucket/v1")
+	bucket.Use(middleware.ChecKToken())
+	{
+		bucket.POST("createbucket", add.Add)
+		bucket.GET("list", list.List)
+	}
+
 	return engine
 }
 

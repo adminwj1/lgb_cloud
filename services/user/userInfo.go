@@ -1,13 +1,14 @@
 package user
 
 import (
+	"errors"
+	"time"
+
 	"clouds.lgb24kcs.cn/errorx"
 	"clouds.lgb24kcs.cn/global"
 	"clouds.lgb24kcs.cn/models"
 	"clouds.lgb24kcs.cn/utils"
-	"errors"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 type UserInfoAPI struct {
@@ -27,8 +28,12 @@ func (u *UserInfoAPI) UserInfo(c *gin.Context, userId int64) {
 			"Create_At": userInfo.CreatedAt.Format(time.DateTime),
 		})
 	} else if tx.RowsAffected != 0 {
+		global.APP.Log.Error(errors.New("用户数据获取失败").Error())
+
 		utils.Fail(c, errorx.UserInfo, errors.New("用户数据获取失败").Error())
 	} else {
+		global.APP.Log.Error(tx.Error.Error())
+
 		utils.Fail(c, errorx.UserInfo, tx.Error.Error())
 
 	}

@@ -1,13 +1,14 @@
 package user
 
 import (
+	"time"
+
 	"clouds.lgb24kcs.cn/controllers/user/request"
 	"clouds.lgb24kcs.cn/errorx"
 	"clouds.lgb24kcs.cn/global"
 	"clouds.lgb24kcs.cn/models"
 	"clouds.lgb24kcs.cn/utils"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 type RegisterFunc struct {
@@ -25,6 +26,8 @@ func (r *RegisterFunc) Register(c *gin.Context, req request.RegisterReq) {
 	}
 	err := global.APP.DB.Create(&user).Error
 	if err != nil {
+		global.APP.Log.Error(err.Error())
+
 		utils.Fail(c, errorx.UserRegister, err.Error())
 	} else {
 		userInfo := request.RegisterRes{

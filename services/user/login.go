@@ -1,14 +1,15 @@
 package user
 
 import (
+	"errors"
+	"time"
+
 	"clouds.lgb24kcs.cn/controllers/user/request"
 	"clouds.lgb24kcs.cn/errorx"
 	"clouds.lgb24kcs.cn/global"
 	"clouds.lgb24kcs.cn/models"
 	"clouds.lgb24kcs.cn/utils"
-	"errors"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 type UserFun struct {
@@ -20,7 +21,7 @@ func (u *UserFun) Login(c *gin.Context, req request.LoginReq) {
 	user := models.User{}
 	err := global.APP.DB.Where("mobile=?", req.Mobile).First(&user).Error
 	if err != nil {
-
+		global.APP.Log.Error(err.Error())
 	} else {
 		if ok := utils.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)); !ok {
 			utils.Fail(c, errorx.UserLogin, errors.New("账号或密码错误").Error())
@@ -28,6 +29,8 @@ func (u *UserFun) Login(c *gin.Context, req request.LoginReq) {
 			token, err := utils.CreateToken(int64(user.ID))
 			now := time.Now().Unix()
 			if err != nil {
+				global.APP.Log.Error(err.Error())
+
 				utils.Fail(c, errorx.UserLogin, err.Error())
 			} else {
 				UserInfo := request.LoginRes{
