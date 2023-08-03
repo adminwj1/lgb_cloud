@@ -20,9 +20,13 @@ var BucketAddApi BucketAdd
 
 func (a *BucketAdd) Add(c *gin.Context, req request.BucketAddReq, userId int64) {
 	bucket := models.Storage{}
-	// 不知道为什么oss存储对象存在相同bucketname时不会报错，这里使用查询数据库来判断bucket是否存在
+	// 判断同一个accesskey下是否已经存在同名的bucket
 	tx := global.APP.DB.Where("bucketname=? AND accesskey =?", req.BucketName, req.AccessKey).First(&bucket)
-	if tx.RowsAffected != 0 {
+	if bucket.Accesskey == req.AccessKey {
+		global.APP.Log.Error(errors.New("AccessKey已被其他用户绑定").Error())
+		utils.Fail(c, errorx.BucketAdd, "AccessKey已被其他用户绑定")
+
+	} else if tx.RowsAffected != 0 {
 		global.APP.Log.Error(errors.New("Bucket创建失败，改Bucket已存在").Error())
 		utils.Fail(c, errorx.BucketAdd, "Bucket创建失败，改Bucket已存在")
 
