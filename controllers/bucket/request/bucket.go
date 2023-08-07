@@ -46,9 +46,11 @@ type DetailBucketReq struct {
 
 type DetailBucketResp struct {
 	BucketID   int64  `json:"bucket-id"`
+	UserId     int64  `json:"user_id"`
 	Alias      string `json:"alias"`
 	AccessKey  string `json:"access_key"`
 	SecretKey  string `json:"secret_key"`
 	BucketName string `json:"bucket_name"`
 	Zone       string `json:"zone"`
+	CreateAt   string `json:"create_at"`
 }

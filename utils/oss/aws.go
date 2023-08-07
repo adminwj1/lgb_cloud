@@ -15,12 +15,12 @@ func NewAws(access_key, secret_key, end_point string) *s3.Client {
 
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		return aws.Endpoint{
-			URL: "https://oss-cn-chengdu.aliyuncs.com",
+			URL: end_point,
 		}, nil
 	})
 	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver),
 		config.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(
-			"LTAI4GFMYtZufJVjY4fPpEam", "EOBJsgdHeADPjnp3VbaO0vdcBSa6IM", "",
+			access_key, secret_key, "",
 		)))
 	if err != nil {
 		global.APP.Log.Error(err.Error())
@@ -60,7 +60,6 @@ func BucketExists(svc *s3.Client, bucketName string) bool {
 
 	//  检测桶是否存在
 	_, err := svc.HeadBucket(context.TODO(), &s3.HeadBucketInput{Bucket: aws.String(bucketName)})
-	fmt.Println(bucketName)
 	if err != nil {
 		global.APP.Log.Error(err.Error())
 		fmt.Println(err)
@@ -91,14 +90,15 @@ func DeleteBucket(access_key, secret_key, end_point, BucketName string) error {
 }
 
 /*详细桶信息*/
-func GetBucket(access_key, secret_key, end_point, BucketName string) {
+func GetBucket(access_key, secret_key, end_point, BucketName string) bool {
 	svc := NewAws(access_key, secret_key, end_point)
-	acl, err := svc.GetBucketAcl(context.TODO(), &s3.GetBucketAclInput{Bucket: aws.String(BucketName)})
-	if err != nil {
-
+	//acl, err := svc.GetBucketAcl(context.TODO(), &s3.GetBucketAclInput{Bucket: aws.String(BucketName)}) // 获取桶的详细数据
+	if exists := BucketExists(svc, BucketName); exists {
+		return true
 	} else {
-		fmt.Println(acl)
+		return false
 	}
+
 }
 
 /*目录创建*/

@@ -23,14 +23,17 @@ func (b BucketList) List(c *gin.Context, req request.ListBucketReq, userId int64
 	/*用当前登录用户id查询数据库，获取当前用户所有的bucket信息*/
 	buckets := []models.Storage{}
 	var Count int64
+	fmt.Println(userId)
 	tx := global.APP.DB.Where("userid=?", userId).Find(&buckets).Count(&Count)
 	if tx.Error != nil {
 		global.APP.Log.Error(tx.Error.Error())
 		utils.Fail(c, errorx.BucketList, tx.Error.Error())
 	} else if tx.RowsAffected == 0 {
+
 		utils.Fail(c, errorx.BucketList, errors.New("没有数据").Error())
 	} else {
-		// 检查bucket是否存在oss存储中
+		// 检查bucket是否存在oss存储中、
+		fmt.Println(buckets)
 		list := []request.ListBucketsResp{}
 		for _, item := range buckets {
 			sve := oss.NewAws(item.Accesskey, item.Secretkey, item.Zone)
