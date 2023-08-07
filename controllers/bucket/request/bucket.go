@@ -2,8 +2,10 @@ package request
 
 type ListBuckets struct {
 	Id         int64  `json:"id"`
+	UserID     int64  `json:"user_id"`
 	Alias      string `json:"alias"`
 	BucketName string `json:"bucketname"`
+	CreateAt   string `json:"create_at"`
 }
 type BucketAddReq struct {
 	AccessKey  string `json:"access_key" binding:"required"`
@@ -33,7 +35,7 @@ type ListBucketsResp struct {
 
 // 删除
 type DeleteBucketReq struct {
-	Id         int64  `form:"id" binding:"required"`
+	Id         int64  `form:"id" binding:"required"` // bucketId
 	BucketName string `form:"bucketname" binding:"required"`
 }
 
