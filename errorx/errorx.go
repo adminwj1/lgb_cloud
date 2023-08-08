@@ -9,6 +9,10 @@ const (
 	BucketList        = 20002
 	BucketDel         = 20003
 	BucketDetaillogic = 20004
+	ObjectCreate      = 30001
+	ObjectList        = 30002
+	ObjectDel         = 30003
+	ObjectDetailsl    = 30004
 
 	VerifyError = 50000
 	TokenError  = 60000

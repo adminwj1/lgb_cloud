@@ -15,7 +15,7 @@ func InitDB() *gorm.DB {
 		global.APP.Log.Error(err.Error())
 		panic(err)
 	}
-	err = open.AutoMigrate(&models.User{}, &models.Storage{})
+	err = open.AutoMigrate(&models.User{}, &models.Storage{}, &models.Catalogue{})
 	if err != nil {
 		global.APP.Log.Error(err.Error())
 		panic(err)

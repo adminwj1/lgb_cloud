@@ -2,11 +2,9 @@ package models
 
 import "gorm.io/gorm"
 
-type Disk struct {
+type Catalogue struct {
 	gorm.Model
-	Diskname   string
-	CreateAt   string
-	UpdateAt   string
+	Diskname   string `gorm:"unique"`
 	Userid     int64
 	Bucketname string
 	Bucketid   int64
