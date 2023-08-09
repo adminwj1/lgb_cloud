@@ -17,8 +17,6 @@ type UserInfoAPI struct {
 var UserInfo UserInfoAPI
 
 func (u *UserInfoAPI) UserInfo(c *gin.Context, userId int64) {
-	//userInfo := models.User{}
-
 	var userInfo models.User
 	tx := global.APP.DB.Where("id=?", userId).First(&userInfo)
 	if tx.Error == nil {

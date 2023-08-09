@@ -1,0 +1,279 @@
+definitions:
+  request.BucketAddReq:
+    properties:
+      access_key:
+        type: string
+      alias:
+        type: string
+      bucket_name:
+        type: string
+      secret_key:
+        type: string
+      zone:
+        type: string
+    required:
+    - access_key
+    - alias
+    - bucket_name
+    - secret_key
+    - zone
+    type: object
+  request.CatalogueCreateReq:
+    properties:
+      bucket_id:
+        type: integer
+      bucket_name:
+        type: string
+      disk_name:
+        type: string
+    required:
+    - bucket_id
+    - bucket_name
+    - disk_name
+    type: object
+  request.DeleteBucketReq:
+    properties:
+      bucketname:
+        type: string
+      id:
+        description: bucketId
+        type: integer
+    required:
+    - bucketname
+    - id
+    type: object
+  request.LoginReq:
+    properties:
+      mobile:
+        type: string
+      password:
+        type: string
+    required:
+    - mobile
+    - password
+    type: object
+  request.RegisterReq:
+    properties:
+      mobile:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - mobile
+    - password
+    - username
+    type: object
+  request.UpdataReq:
+    properties:
+      username:
+        type: string
+    required:
+    - username
+    type: object
+info:
+  contact: {}
+paths:
+  /bucket/v1/createbucket:
+    post:
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 添加请求参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.BucketAddReq'
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 存储空间创建
+  /bucket/v1/del:
+    delete:
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 删除请求参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.DeleteBucketReq'
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 存储空间删除
+  /bucket/v1/detail:
+    get:
+      parameters:
+      - description: 存储空间ID
+        in: query
+        name: bucket_id
+        required: true
+        type: integer
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 存储空间详情
+  /bucket/v1/list:
+    get:
+      parameters:
+      - description: 当前页数
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - description: 查询总页数
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 存储空间列表
+  /catalogue/v1/create:
+    post:
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 添加请求参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.CatalogueCreateReq'
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 目录对象创建
+  /catalogue/v1/detail:
+    get:
+      parameters:
+      - description: 存储空间名称
+        in: query
+        name: bucket_name
+        required: true
+        type: string
+      - description: 存储空间ID
+        in: query
+        name: bucket_id
+        required: true
+        type: integer
+      - description: 目录对象名称
+        in: query
+        name: catalogue_id
+        required: true
+        type: string
+      - description: 目录对象ID
+        in: query
+        name: catalogue_name
+        required: true
+        type: integer
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 目录对象详情
+  /user/v1/login:
+    post:
+      parameters:
+      - description: 添加请求参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.LoginReq'
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 用户登录
+  /user/v1/register:
+    post:
+      parameters:
+      - description: 添加请求参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.RegisterReq'
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 用户注册接口
+  /user/v1/userinfo:
+    get:
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 用户详情
+  /user/v1/userupdata:
+    put:
+      parameters:
+      - description: 添加请求参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.UpdataReq'
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 用户更新
+swagger: "2.0"

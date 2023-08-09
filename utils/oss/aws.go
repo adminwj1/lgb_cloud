@@ -170,3 +170,37 @@ func DelObject(access_key, secret_key, end_point, BucketName string, objectKeys 
 	}
 
 }
+
+/*检查目录对象是否存在*/
+func CatalogueObjectExists(svc *s3.Client, BucketName, CatalogueName string) bool {
+	// s3中没有目录的概念，这里实现目录功能是通过创建没有数据的空对象实现的
+	_, err := svc.HeadObject(context.TODO(), &s3.HeadObjectInput{Bucket: aws.String(BucketName), Key: aws.String(BucketName + "/" + CatalogueName + "/")})
+	if err != nil {
+		global.APP.Log.Error(err.Error())
+		return false
+	} else {
+		return true
+	}
+
+}
+
+/*对象详情信息*/
+func GetObject(access_key, secret_key, end_point, BucketName string, objectKeys string) error {
+	svc := NewAws(access_key, secret_key, end_point)
+
+	//	检查对象是否存在
+	if exists := CatalogueObjectExists(svc, BucketName, objectKeys); !exists {
+		return errors.New("对象不存在")
+
+	} else {
+		//_, err := svc.GetObject(context.TODO(), &s3.GetObjectInput{Bucket: aws.String(BucketName), Key: aws.String(BucketName + "/" + objectKeys + "/")})
+		//if err != nil {
+		//	return err
+		//} else {
+		//
+		//
+		//	return nil
+		//}
+		return nil
+	}
+}

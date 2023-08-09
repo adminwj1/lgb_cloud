@@ -81,3 +81,12 @@
 {"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-08T22:55:06.149+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: KbAAAABvlb00cHkX, HostID: , NotFound: "}
 {"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-08T23:02:02.806+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: avkAAABN3rOVcHkX, HostID: , NotFound: "}
 {"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-08T23:03:21.392+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: gUAAAAA5owyocHkX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:46:00.365+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:31.949+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:34.586+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:35.302+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:35.649+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:36.003+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:36.364+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:43.753+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:49:42.743+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: fiQAAAAJHNo3u3kX, HostID: , NotFound: "}

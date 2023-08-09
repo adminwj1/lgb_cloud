@@ -36,5 +36,5 @@ type CatalogueDetailsReq struct {
 }
 
 type CatalogueDetailsResp struct {
-	CatalogueInfo CatalogueInfo
+	List CatalogueInfo
 }

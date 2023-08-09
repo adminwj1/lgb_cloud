@@ -6,18 +6,25 @@ import (
 	"clouds.lgb24kcs.cn/controllers/bucket/detail"
 	"clouds.lgb24kcs.cn/controllers/bucket/list"
 	"clouds.lgb24kcs.cn/controllers/catalogue/create"
+	"clouds.lgb24kcs.cn/controllers/catalogue/detailsobject"
 	"clouds.lgb24kcs.cn/controllers/user/Login"
 	"clouds.lgb24kcs.cn/controllers/user/Register"
 	"clouds.lgb24kcs.cn/controllers/user/upload"
 	"clouds.lgb24kcs.cn/controllers/user/userInfo"
+	_ "clouds.lgb24kcs.cn/docs"
 	"clouds.lgb24kcs.cn/global"
 	"clouds.lgb24kcs.cn/middleware"
 	"github.com/gin-gonic/gin"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func StartRouter() *gin.Engine {
 	engine := gin.Default()
+	engine.Use(middleware.Cors())
 	user := engine.Group("user/v1")
+	engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+
 	{
 		user.POST("login", Login.Login)
 		user.POST("register", Register.Register)
@@ -41,6 +48,7 @@ func StartRouter() *gin.Engine {
 	catalogue.Use(middleware.ChecKToken())
 	{
 		catalogue.POST("create", create.Create)
+		catalogue.GET("detail", detailsobject.DetailObject)
 	}
 
 	return engine

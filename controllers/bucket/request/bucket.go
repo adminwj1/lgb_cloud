@@ -41,7 +41,7 @@ type DeleteBucketReq struct {
 
 // bucket详细信息
 type DetailBucketReq struct {
-	BucketId int64 `form:"bucketId" binding:"required"`
+	BucketId int64 `form:"bucket_id" binding:"required"`
 }
 
 type DetailBucketResp struct {
