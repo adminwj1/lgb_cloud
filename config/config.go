@@ -22,9 +22,9 @@ type Database struct {
 
 type Log struct {
 	Root_dir  string `json:"root_dir"`
-	FileName  string `json:"filename`
-	MaxSize   int    `json:"max_size`
-	MaxBackup int    `json:"max_backup`
+	FileName  string `json:"file_name""`
+	MaxSize   int    `json:"max_size""`
+	MaxBackup int    `json:"max_backup""`
 	MaxAge    int    `json:"max_age"`
 	Level     string `json:"level"`
 }

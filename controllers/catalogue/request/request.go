@@ -20,9 +20,8 @@ type CatalogueCreateRes struct {
 }
 
 type DelCatalogues struct {
-	BUcketName string `form:"bucket_name" binding:"required"`
-	BucketID   int64  `form:"bucket_id" binding:"required"`
-	//UserID        int64  `form:"user_id" binding:"required"`
+	BUcketName    string `form:"bucket_name" binding:"required"`
+	BucketID      int64  `form:"bucket_id" binding:"required"`
 	CatalogueName string `form:"catalogue_name" binding:"required"`
 	CatalogueId   int64  `form:"catalogue_id" binding:"required"`
 }
@@ -36,5 +35,21 @@ type CatalogueDetailsReq struct {
 }
 
 type CatalogueDetailsResp struct {
-	List CatalogueInfo
+	List CatalogueInfo `json:"list"`
+}
+
+type CatalogueListReq struct {
+	Limit int64 `form:"limit" binding:"required"`
+	Page  int64 `form:"page" binding:"required"`
+}
+
+type CatalogueListRes struct {
+	Count int64         `json:"count"`
+	List  CatalogueInfo `json:"list"`
+}
+
+type SearchReq struct {
+	CatalogueName string `json:"catalogue_name"`
+	Limit         int64  `form:"limit" binding:"required"`
+	Page          int64  `form:"page" binding:"required"`
 }

@@ -5,8 +5,10 @@ import (
 	"clouds.lgb24kcs.cn/controllers/bucket/del"
 	"clouds.lgb24kcs.cn/controllers/bucket/detail"
 	"clouds.lgb24kcs.cn/controllers/bucket/list"
+	"clouds.lgb24kcs.cn/controllers/catalogue/catalogudel"
 	"clouds.lgb24kcs.cn/controllers/catalogue/create"
 	"clouds.lgb24kcs.cn/controllers/catalogue/detailsobject"
+	"clouds.lgb24kcs.cn/controllers/catalogue/search"
 	"clouds.lgb24kcs.cn/controllers/user/Login"
 	"clouds.lgb24kcs.cn/controllers/user/Register"
 	"clouds.lgb24kcs.cn/controllers/user/upload"
@@ -49,6 +51,9 @@ func StartRouter() *gin.Engine {
 	{
 		catalogue.POST("create", create.Create)
 		catalogue.GET("detail", detailsobject.DetailObject)
+		catalogue.GET("list", list.List)
+		catalogue.GET("cataloguesearch", search.Search)
+		catalogue.DELETE("delete", catalogudel.DeleteObject)
 	}
 
 	return engine

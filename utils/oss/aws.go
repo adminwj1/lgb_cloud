@@ -128,18 +128,6 @@ func CreateObject(access_key, secret_key, end_point, BucketName string, RootName
 
 }
 
-/*检查对象是否存在*/
-func ObjectExists(svc *s3.Client, BucketName, CatalogueName string) bool {
-	_, err := svc.HeadObject(context.TODO(), &s3.HeadObjectInput{Bucket: aws.String(BucketName), Key: aws.String(CatalogueName)})
-	if err != nil {
-		global.APP.Log.Error(err.Error())
-		return false
-	} else {
-		return true
-	}
-
-}
-
 /* 删除多个目录*/
 func DelObjects(access_key, secret_key, end_point, BucketName string, objectKeys []string) bool {
 	svc := NewAws(access_key, secret_key, end_point)
@@ -158,19 +146,6 @@ func DelObjects(access_key, secret_key, end_point, BucketName string, objectKeys
 	}
 }
 
-/*删除单个文件对象*/
-func DelObject(access_key, secret_key, end_point, BucketName string, objectKeys string) bool {
-	svc := NewAws(access_key, secret_key, end_point)
-	_, err := svc.DeleteObject(context.TODO(), &s3.DeleteObjectInput{Bucket: aws.String(BucketName), Key: aws.String(objectKeys)})
-	if err != nil {
-		global.APP.Log.Error(err.Error())
-		return false
-	} else {
-		return true
-	}
-
-}
-
 /*检查目录对象是否存在*/
 func CatalogueObjectExists(svc *s3.Client, BucketName, CatalogueName string) bool {
 	// s3中没有目录的概念，这里实现目录功能是通过创建没有数据的空对象实现的
@@ -184,7 +159,7 @@ func CatalogueObjectExists(svc *s3.Client, BucketName, CatalogueName string) boo
 
 }
 
-/*对象详情信息*/
+/*目录对象详情信息，这个方法存在问题*/
 func GetObject(access_key, secret_key, end_point, BucketName string, objectKeys string) error {
 	svc := NewAws(access_key, secret_key, end_point)
 
@@ -193,14 +168,58 @@ func GetObject(access_key, secret_key, end_point, BucketName string, objectKeys 
 		return errors.New("对象不存在")
 
 	} else {
-		//_, err := svc.GetObject(context.TODO(), &s3.GetObjectInput{Bucket: aws.String(BucketName), Key: aws.String(BucketName + "/" + objectKeys + "/")})
-		//if err != nil {
-		//	return err
-		//} else {
-		//
-		//
-		//	return nil
-		//}
 		return nil
 	}
+}
+
+/*删除单个目录对象*/
+func DelCatalogue(access_key, secret_key, end_point, BucketName string, objectKeys string) bool {
+	svc := NewAws(access_key, secret_key, end_point)
+	//检查目录对象是否存在
+
+	exists := CatalogueObjectExists(svc, BucketName, objectKeys)
+	if !exists {
+		return false
+	} else {
+		_, err := svc.DeleteObject(context.TODO(), &s3.DeleteObjectInput{Bucket: aws.String(BucketName), Key: aws.String(BucketName + "/" + objectKeys + "/")})
+		if err != nil {
+			global.APP.Log.Error(err.Error())
+			return false
+		} else {
+			return true
+		}
+	}
+
+}
+
+/*检查对象是否存在*/
+func ObjectExists(svc *s3.Client, BucketName, CatalogueName string) bool {
+	_, err := svc.HeadObject(context.TODO(), &s3.HeadObjectInput{Bucket: aws.String(BucketName), Key: aws.String(CatalogueName)})
+	if err != nil {
+		global.APP.Log.Error(err.Error())
+		return false
+	} else {
+		return true
+	}
+
+}
+
+/*删除单个文件对象*/
+func DelObject(access_key, secret_key, end_point, BucketName string, objectKeys string) bool {
+	svc := NewAws(access_key, secret_key, end_point)
+	//检查目录对象是否存在
+
+	exists := CatalogueObjectExists(svc, BucketName, objectKeys)
+	if !exists {
+		return false
+	} else {
+		_, err := svc.DeleteObject(context.TODO(), &s3.DeleteObjectInput{Bucket: aws.String(BucketName), Key: aws.String(objectKeys)})
+		if err != nil {
+			global.APP.Log.Error(err.Error())
+			return false
+		} else {
+			return true
+		}
+	}
+
 }

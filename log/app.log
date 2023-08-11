@@ -90,3 +90,55 @@
 {"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:36.364+0800","msg":"record not found"}
 {"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:47:43.753+0800","msg":"record not found"}
 {"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-09T21:49:42.743+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: fiQAAAAJHNo3u3kX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:16:19.259+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: 1XgAAACyyr7UWXoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:18:10.084+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: -5cAAACykZHuWXoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:19:43.571+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: mzMAAADbC1YEWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:22:22.594+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: CLwAAABdGlgpWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:23:23.328+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: TJkAAACvzoA3WnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:24:39.468+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: VtoAAABmRztJWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:24:54.884+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: G-cAAACW7dFMWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:25:15.319+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: 8Q4AAADS_pNRWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:25:26.117+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: -78AAADsrRdUWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:25:27.971+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: KosAAAC3SIZUWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:25:28.917+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: OlkAAAAMVr5UWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:25:29.529+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: KDUAAAARKuNUWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:25:57.812+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: 5zMAAAD7I3lbWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:26:05.790+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: JtYAAAAitFRdWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:28:20.328+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: NKYAAACLWKd8WnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:28:20.417+0800","msg":"operation error S3: DeleteObject, https response error StatusCode: 404, RequestID: KkAAAADJsax8WnoX, HostID: , api error NoSuchBucket: The specified bucket does not exist"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:28:55.184+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: RjQAAACnk8SEWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:28:55.257+0800","msg":"operation error S3: DeleteObject, https response error StatusCode: 404, RequestID: aTgAAADnNcmEWnoX, HostID: , api error NoSuchBucket: The specified bucket does not exist"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:28:56.562+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: Xi4AAACkxRaFWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:28:56.639+0800","msg":"operation error S3: DeleteObject, https response error StatusCode: 404, RequestID: 06oAAADKjBuFWnoX, HostID: , api error NoSuchBucket: The specified bucket does not exist"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:29:53.989+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: xsMAAADzunWSWnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:23.360+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:24.733+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:25.595+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:25.966+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:26.320+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:26.689+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:27.056+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:27.485+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:27.800+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:30.496+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:39:56.611+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:40:28.523+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: kZwAAABoLTMmW3oX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:52:08.916+0800","msg":"sql: expected 1 arguments, got 2"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:52:10.431+0800","msg":"sql: expected 1 arguments, got 2"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:52:56.902+0800","msg":"sql: expected 1 arguments, got 2"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:53:12.593+0800","msg":"sql: expected 1 arguments, got 2"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:53:15.274+0800","msg":"sql: expected 1 arguments, got 2"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:57:32.517+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: hbEAAACk3p0UXHoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T22:57:42.049+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: rhQAAAAQUtYWXHoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:33:10.064+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: Y3YAAABPYU0GXnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:33:33.083+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: cHcAAACu-akLXnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:34:35.244+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: WNEAAACP9SIaXnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:34:35.306+0800","msg":"Error 1062 (23000): Duplicate entry '文档' for key 'diskname'"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:35:14.906+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: S8sAAACFIl8jXnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:35:14.984+0800","msg":"Error 1062 (23000): Duplicate entry '文档' for key 'diskname'"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:36:17.969+0800","msg":"Error 1170 (42000): BLOB/TEXT column 'diskname' used in key specification without a key length"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:37:12.403+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: LA8AAAC6U7o-XnoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-11T23:37:18.585+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-12T01:22:47.411+0800","msg":"operation error S3: HeadObject, https response error StatusCode: 404, RequestID: wlcAAACzGdgBZHoX, HostID: , NotFound: "}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-12T01:23:28.075+0800","msg":"record not found"}
+{"level":"\u001b[31mERROR\u001b[0m","time":"2023-08-12T01:23:31.587+0800","msg":"record not found"}

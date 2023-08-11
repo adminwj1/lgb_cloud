@@ -37,8 +37,9 @@ func (catalogue *CatalogueCreateApi) Create(c *gin.Context, req request.Catalogu
 			create := global.APP.DB.Create(&catalogueInfo)
 			// 如果数据库在创建数据时出现错误，就删除oss存储中的数据
 			if create.Error != nil {
+				global.APP.Log.Error(create.Error.Error())
 				// 删除oss存储中对应的存储目录数据
-				if ok := oss.DelObject(BucketInfo.Accesskey, BucketInfo.Secretkey, BucketInfo.Zone, req.BucketName, req.DiskName); !ok {
+				if ok := oss.DelCatalogue(BucketInfo.Accesskey, BucketInfo.Secretkey, BucketInfo.Zone, req.BucketName, req.DiskName); !ok {
 					utils.Fail(c, errorx.ObjectCreate, errors.New("创建存储目录失败").Error())
 				}
 			} else {

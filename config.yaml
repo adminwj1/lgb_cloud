@@ -12,7 +12,7 @@ database:
 log:
   Root_dir: ./log
   FileName: app.log
-  MaxSize: 500
+  MaxSize: 2
   MaxBackup: 3
   MaxAge: 28
   Level: info
